@@ -1,0 +1,47 @@
+.container-home {
+  display: flex;
+  justify-content: center;
+  margin-top: 10vh;
+  height: 1000px;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #cca933;
+  background-image: url(../../assets/dog-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: -15vw;
+}
+
+
+.text-home {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  width: 60%;
+  align-items: center;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 45px;
+  letter-spacing: 1px;
+  color: #25395c;
+  line-height: 8vh;
+  text-align: center;
+}
+
+.sub-title {
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 18px;
+  color: #d9e2f1;
+  text-align: center;
+}
+
+.text {
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  font-size: 15px;
+  color: #343a40;
+  text-align: center;
+  margin-top: 2vh;
+}

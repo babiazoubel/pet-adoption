@@ -1,0 +1,38 @@
+.container-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+  font-family: 'Ubuntu', sans-serif;
+  align-items: center;
+}
+
+.title-profile {
+  font-weight: 700;
+  font-size: 35px;
+  color: #25395c;
+  line-height: 50px;
+}
+
+.imput-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.avatar-container {
+  display: flex;
+  justify-content: center;
+}
+
+.avatar-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border-width: 3px;
+  border-color: hsl(0, 0%, 80%);
+  border-style: solid;
+}

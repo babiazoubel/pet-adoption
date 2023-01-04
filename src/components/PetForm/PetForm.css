@@ -1,0 +1,26 @@
+.input-container-pet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.img-preview-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.img-preview {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border-width: 2px;
+  object-fit: cover;
+}
