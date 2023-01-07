@@ -7,14 +7,18 @@ import useFlashMessage from './useFlashMessages';
 
 function useAuth() {
   const [authenticated, setAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
+
   const { setFlashMessage } = useFlashMessage();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
+
     if (token) {
       api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
       setAuthenticated(true);
     }
+    setLoading(false);
   }, []);
 
   async function register(user) {
@@ -61,7 +65,7 @@ function useAuth() {
     api.defaults.headers.Authorization = undefined;
   }
 
-  return { authenticated, register, logout, login };
+  return { authenticated, loading, register, logout, login };
 }
 
 export default useAuth;

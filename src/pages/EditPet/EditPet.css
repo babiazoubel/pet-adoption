@@ -1,0 +1,15 @@
+.container-pets {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 100%;
+    font-family: 'Ubuntu', sans-serif;
+    align-items: center;
+  }
+  
+  .title-pets {
+    font-weight: 700;
+    font-size: 35px;
+    color: #25395c;
+    line-height: 50px;
+  }

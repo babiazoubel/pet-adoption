@@ -54,7 +54,7 @@ const NavBar = () => {
                 <Nav.Link href="/" className="link">
                   Home
                 </Nav.Link>
-                <Nav.Link href="/profile" className="link">
+                <Nav.Link href="/user/profile" className="link">
                   Profile
                 </Nav.Link>
                 <NavDropdown title="My Pets" id="navbarScrollingDropdown">

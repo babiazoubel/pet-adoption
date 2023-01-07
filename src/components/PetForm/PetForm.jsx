@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Form, InputGroup } from 'react-bootstrap';
 import './PetForm.css';
-import Button from '../../components/Button/Button';
 import Select from '../Select';
 
-const PetForm = ({ petData, handleClick }) => {
+const PetForm = ({ petData, handleSubmit, btnText }) => {
   const [pet, setPet] = useState(petData || {});
   const [preview, setPreview] = useState([]);
   const types = ['Dog', 'Cat'];
@@ -49,30 +48,30 @@ const PetForm = ({ petData, handleClick }) => {
     });
   }
 
-  const click = (e) => {
+  const submit = (e) => {
     e.preventDefault();
-    handleClick(pet);
+    handleSubmit(pet);
   };
 
   return (
     <>
-      <form className="input-container-pet">
+      <form onSubmit={submit} className="input-container-pet">
         <div className="img-preview-container">
           {preview.length > 0
-            ? preview.map((image, i) => (
+            ? preview.map((image, index) => (
                 <img
                   src={URL.createObjectURL(image)}
                   alt={pet.name}
-                  key={`${pet.name}-${i}`}
+                  key={`${pet.name}-${index}`}
                   className="img-preview"
                 />
               ))
             : pet.images &&
-              pet.images.map((image, i) => (
+              pet.images.map((image, index) => (
                 <img
                   src={`http://localhost:5000/images/pets/${image}`}
                   alt={pet.name}
-                  key={`${pet.name}-${i}`}
+                  key={`${pet.name}-${index}`}
                   className="img-preview"
                 />
               ))}
@@ -197,7 +196,7 @@ const PetForm = ({ petData, handleClick }) => {
             value={pet.bio || ''}
           />
         </InputGroup>
-        <Button onClick={click}>Register a Pet</Button>
+        <input type='submit' value={btnText} className='button'/>
       </form>
     </>
   );

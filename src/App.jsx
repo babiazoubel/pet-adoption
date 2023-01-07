@@ -14,6 +14,7 @@ import Register from './modals/Register/Register';
 import Profile from './pages/Profile/Profile';
 import MyPets from './pages/MyPets/MyPets';
 import AddPet from './pages/AddPet/AddPet';
+import EditPet from './pages/EditPet/EditPet';
 
 function App() {
   return (
@@ -25,9 +26,10 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/user/profile" element={<Profile />} />
             <Route path="/pet/mypets" element={<MyPets />} />
             <Route path="/pet/add" element={<AddPet />} />
+            <Route path="/pet/edit/:id" element={<EditPet />} />
           </Routes>
         </div>
       </BrowserRouter>
