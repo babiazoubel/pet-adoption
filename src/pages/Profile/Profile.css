@@ -29,10 +29,11 @@
 }
 
 .avatar-img {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   border-width: 3px;
   border-color: hsl(0, 0%, 80%);
   border-style: solid;
+  object-fit: cover;
 }

@@ -1,0 +1,81 @@
+.box-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name-pet {
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.box-all {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  align-items: center;
+}
+
+.box-img {
+  display: flex;
+  width: 500px;
+  justify-content: space-around;
+}
+
+.img-details {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.box-details-all {
+  width: 350px;
+  display: flex;
+  border: 3px;
+  border-top-style: solid;
+  border-top-color: #8ebfe0;
+  padding-top: 40px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.box-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.btn-adopt {
+  background-color: #8ebfe0;
+  height: 34px;
+  padding: 0 10px;
+  min-width: 68px;
+  font-size: 16px;
+  color: #343a40;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.text-register {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  font-size: 12px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  text-align: center;
+  gap: 10px;
+}

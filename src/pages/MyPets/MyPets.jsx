@@ -44,14 +44,17 @@ function MyPets() {
         return err.response.data;
       });
 
-      setFlashMessage(data.message, msgType);
+    setFlashMessage(data.message, msgType);
   }
 
   return (
     <>
       <div className="container-pets">
         <div className="title-pets">My Pets</div>
-        <NavLink to="/pet/add">Register a pet here</NavLink>
+        <NavLink to="/pet/add">Register a new pet here</NavLink>
+        <div className="text-pet">
+          Organize and controll your pets for adoption
+        </div>
         <div className="container-mypets">
           <Message />
           {pets.length > 0 &&
@@ -64,13 +67,19 @@ function MyPets() {
                     className="img-pets"
                   />
                   <div className="container-pets-each">
-                    <div>
-                      {pet.name} ({pet.type})
+                    <div className="text-box">
+                      <div className="text-list">
+                        {pet.name} ({pet.type})
+                      </div>
+                      <div className="title-list">
+                        <span className="text-list">Age:</span> {pet.age}
+                      </div>
+                      <div className="title-list">
+                        <span className="text-list">Breed:</span> {pet.breed}
+                      </div>
                     </div>
-                    <div>{pet.age}</div>
-                    <div>color: {pet.color}</div>
-                    <div>breed: {pet.breed}</div>
-                    <div>
+
+                    <div className="box-buttons-pet">
                       {pet.available ? (
                         <>
                           {pet.adopter && (

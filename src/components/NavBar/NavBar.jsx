@@ -46,7 +46,6 @@ const NavBar = () => {
             {!authenticated && (
               <>
                 <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/pets">Adopt</Nav.Link>
               </>
             )}
             {authenticated && (
@@ -56,6 +55,9 @@ const NavBar = () => {
                 </Nav.Link>
                 <Nav.Link href="/user/profile" className="link">
                   Profile
+                </Nav.Link>
+                <Nav.Link href="/pet/myadoptions" className="link">
+                  My Adoptions
                 </Nav.Link>
                 <NavDropdown title="My Pets" id="navbarScrollingDropdown">
                   <NavDropdown.Item className="link" href="/pet/mypets">

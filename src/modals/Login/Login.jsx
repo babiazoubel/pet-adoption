@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Form, InputGroup, Modal, Nav } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import Message from '../../components/Message';
 
 //context
@@ -7,6 +8,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 
 const Login = () => {
   const { authentication, login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const [user, setUser] = useState({});
 
@@ -22,6 +24,7 @@ const Login = () => {
   const handleClick = (e) => {
     e.preventDefault();
     login(user);
+    navigate('/');
   };
 
   return (

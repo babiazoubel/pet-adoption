@@ -29,8 +29,10 @@ const AddPet = () => {
 
     const data = await api
       .post('pets/create', formData, {
-        Authorization: `Bearer ${JSON.parse(token)}`,
-        'Content-Type': 'multipart/form-data',
+        headers: {
+          Authorization: `Bearer ${JSON.parse(token)}`,
+          'Content-Type': 'multipart/form-data',
+        },
       })
       .then((response) => {
         return response.data;
@@ -43,16 +45,16 @@ const AddPet = () => {
     setFlashMessage(data.message, msgType);
 
     if (msgType !== 'danger') {
-      navigate('/pet/mypets');
+      // navigate('/pet/mypets');
     }
   }
   return (
     <>
       <div className="container-pets">
         <div className="title-pets">Add Pet</div>
+        <Message />
+        <PetForm handleSubmit={registerPet} btnText="Register a Pet" />
       </div>
-      <Message />
-      <PetForm handleSubmit={registerPet} btnText='Register a Pet' />
     </>
   );
 };

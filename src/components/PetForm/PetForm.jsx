@@ -62,16 +62,16 @@ const PetForm = ({ petData, handleSubmit, btnText }) => {
                 <img
                   src={URL.createObjectURL(image)}
                   alt={pet.name}
-                  key={`${pet.name}-${index}`}
+                  key={`${pet.name}+${index}`}
                   className="img-preview"
                 />
               ))
-            : pet.images &&
+            : pet.images.length > 0 &&
               pet.images.map((image, index) => (
                 <img
                   src={`http://localhost:5000/images/pets/${image}`}
                   alt={pet.name}
-                  key={`${pet.name}-${index}`}
+                  key={`${pet.name}+${index}`}
                   className="img-preview"
                 />
               ))}
@@ -196,7 +196,7 @@ const PetForm = ({ petData, handleSubmit, btnText }) => {
             value={pet.bio || ''}
           />
         </InputGroup>
-        <input type='submit' value={btnText} className='button'/>
+        <input type="submit" value={btnText} className="button" />
       </form>
     </>
   );

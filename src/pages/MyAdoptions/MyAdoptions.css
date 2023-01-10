@@ -1,0 +1,16 @@
+.box-pet-adoption {
+  display: flex;
+  width: 600px;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.pet-adoption-name {
+  display: flex;
+}
+
+.pet-to-adopt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
