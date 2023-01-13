@@ -66,7 +66,7 @@ const PetForm = ({ petData, handleSubmit, btnText }) => {
                   className="img-preview"
                 />
               ))
-            : pet.images.length > 0 &&
+            : pet.images &&
               pet.images.map((image, index) => (
                 <img
                   src={`http://localhost:5000/images/pets/${image}`}

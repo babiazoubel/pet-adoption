@@ -43,6 +43,15 @@
   margin-top: 4vh;
 }
 
+.name-home {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 18px;
+  color: #25395c;
+  text-align: center;
+  margin-top: 4vh;
+}
+
 .box-text-home {
   display: flex;
   flex-direction: column;

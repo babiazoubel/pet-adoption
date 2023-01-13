@@ -39,11 +39,7 @@ const Profile = () => {
     let msgType = 'success';
     const formData = new FormData();
 
-    const userFormData = await Object.keys(user).forEach((key) =>
-      formData.append(key, user[key])
-    );
-
-    formData.append('user', userFormData);
+    await Object.keys(user).forEach((key) => formData.append(key, user[key]));
 
     const data = await api
       .patch(`/users/edit/${user._id}`, formData, {
@@ -59,7 +55,8 @@ const Profile = () => {
         msgType = 'danger';
         return err.response.data;
       });
-    setFlashMessage(data.message, msgType);
+
+      setFlashMessage(data.message, msgType);
   }
 
   return (

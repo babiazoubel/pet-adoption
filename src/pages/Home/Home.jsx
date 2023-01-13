@@ -1,17 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import api from '../../utils/api';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
+import { AuthContext } from '../../contexts/AuthContext';
+
 const Home = () => {
   const imgPet = require('../../assets/dog-bg2.png');
   const [pets, setPets] = useState([]);
+  const [user, setUser] = useState({});
+  const { authenticated } = useContext(AuthContext);
+  const [token] = useState(localStorage.getItem('token') || '');
 
   useEffect(() => {
     api.get('/pets').then((response) => {
       setPets(response.data.pets);
     });
   }, []);
+
+  useEffect(() => {
+    if (!token) return;
+    api
+      .get('/users/checkuser', {
+        headers: {
+          Authorization: `Bearer ${JSON.parse(token)}`,
+        },
+      })
+      .then((response) => {
+        setUser(response.data);
+      });
+  }, [token]);
 
   return (
     <>
@@ -21,6 +39,11 @@ const Home = () => {
             <img src={imgPet} alt="dog" className="img-dog" />
           </div>
           <div className="title-box">
+            {authenticated && (
+              <div className="text">
+                Hello, <span className="name-home">{user.name} {user.lastName}</span>!
+              </div>
+            )}
             <div className="title">Welcome to Mutt Lovers</div>
             <div className="sub-title">Adopt your next best friend</div>
             <div className="text">
@@ -54,8 +77,7 @@ const Home = () => {
                   />
                   <div className="box-pets-home">
                     <div className="title-list">
-                      <span className="text-list">{pet.name}</span>  (
-                      {pet.type})
+                      <span className="text-list">{pet.name}</span> ({pet.type})
                     </div>
                     <div className="title-list">
                       <span className="text-list">Breed:</span> {pet.breed}
