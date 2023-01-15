@@ -56,7 +56,7 @@ const PetDetails = () => {
         </div>
 
         <div className="box-all">
-          <div className="box-img">
+          <div>
             {pet.images?.map((image, index) => (
               <img
                 src={`http://localhost:5000/images/pets/${image}`}

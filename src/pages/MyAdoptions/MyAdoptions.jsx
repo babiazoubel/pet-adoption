@@ -18,22 +18,30 @@ const MyAdoptions = () => {
       });
   }, [token]);
 
+  console.log(pets);
+
   return (
     <div className="container-pets">
       <div className="title-pets">My Adoptions</div>
+      <div className="text-pet">
+        Organize and controll your pets to adopt. <br /> Contact the adopter to
+        meet it and finalize the adoption.
+      </div>
       <div className="box-title">
         {pets.length > 0 &&
           pets.map((pet) => (
             <div key={pet._id} className="box-pet-adoption">
               <div className="pet-adoption-name">
                 <img
-                  src={`http://localhost:5000/images/pets/images/pets/${pet.images[0]}`}
+                  src={`http://localhost:5000/images/pets/${pet.images[0]}`}
                   alt={pet.name}
-                  className="img-pets"
+                  className="img-pets-myadop"
                 />
 
                 <div className="pet-to-adopt">
-                  <div className="name-pet">{pet.name}</div>
+                  <div className="name-pet">
+                    {pet.name} <span className="text-list">({pet.type})</span>
+                  </div>
                   <div className="title-list">
                     <span className="text-list">Call to:</span> {pet.user.name}
                   </div>
@@ -45,9 +53,9 @@ const MyAdoptions = () => {
 
               <div className="text-list">
                 {pet.available ? (
-                  <p>Adoption in process...</p>
+                  <p className='text-adopted'>Adoption in process...</p>
                 ) : (
-                  <p>Congratulations! You adopted your new best friend!</p>
+                  <p className='text-adopted'>Congratulations! You adopted your new best friend!</p>
                 )}
               </div>
             </div>

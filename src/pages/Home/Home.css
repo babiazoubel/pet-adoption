@@ -4,6 +4,7 @@
   margin: 3vh 10vh;
   font-family: 'Ubuntu', sans-serif;
   align-items: center;
+  height: 100vh;
 }
 
 .title-box {
@@ -67,99 +68,5 @@
   text-align: center;
 }
 
-.text-pet {
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  font-size: 15px;
-  color: #343a40;
-  text-align: center;
-}
 
-.center-list {
-  display: flex;
-  justify-content: center;
-}
 
-.box-all-home {
-  display: flex;
-  flex-direction: column;
-}
-
-.pet-box {
-  display: flex;
-  justify-content: flex-start;
-  gap: 50px;
-  margin-top: 5vh;
-  padding-bottom: 5vh;
-  align-items: center;
-  border-bottom: 3px;
-  border-bottom-color: #8ebfe0;
-  border-bottom-style: solid;
-}
-
-.img-pet-home {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  border-width: 2px;
-  object-fit: cover;
-  border: 5px;
-  border-color: #9f7733;
-  border-style: solid;
-}
-
-.container-adopt {
-  margin-top: 10vh;
-  display: flex;
-}
-
-.title-pet {
-  font-weight: 700;
-  font-size: 35px;
-  letter-spacing: 1px;
-  color: #8ebfe0;
-  line-height: 8vh;
-  text-align: center;
-  text-shadow: #25395c 1px 0 7px;
-}
-
-.sub-title-pet {
-  font-weight: 500;
-  letter-spacing: 1px;
-  font-size: 15px;
-  color: #d9e2f1;
-  text-align: center;
-}
-
-.box-pets-home {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: flex-start;
-}
-
-.text-list {
-  font-weight: 700;
-  font-size: 15px;
-  letter-spacing: 1px;
-  color: #3b3b3b;
-  text-align: center;
-}
-
-.title-list {
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  font-size: 15px;
-  color: #343a40;
-  text-align: center;
-}
-
-a {
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  font-size: 15px;
-  text-align: center;
-}

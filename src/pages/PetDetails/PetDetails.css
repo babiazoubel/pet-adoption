@@ -18,15 +18,9 @@
   align-items: center;
 }
 
-.box-img {
-  display: flex;
-  width: 500px;
-  justify-content: space-around;
-}
-
 .img-details {
-  width: 120px;
-  height: 120px;
+  width: 220px;
+  height: 220px;
   object-fit: cover;
   border-radius: 10px;
 }

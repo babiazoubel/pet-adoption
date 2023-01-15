@@ -1,22 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import mainLogo from '../../assets/dog-nose.png';
 import './NavBar.css';
 
 //bootstrap
-import {
-  InputGroup,
-  Button,
-  Container,
-  Form,
-  Nav,
-  Navbar,
-  NavDropdown,
-} from 'react-bootstrap';
-
-//icon
-import { BiSearchAlt2 } from 'react-icons/bi';
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
 //context
 import { AuthContext } from '../../contexts/AuthContext';
@@ -45,7 +34,12 @@ const NavBar = () => {
           <Nav className="me-auto my-2 my-lg-0">
             {!authenticated && (
               <>
-                <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link href="/" className="link">
+                  Home
+                </Nav.Link>
+                <Nav.Link href="/adopt" className="link-adopt">
+                  ADOPT
+                </Nav.Link>
               </>
             )}
             {authenticated && (
@@ -53,6 +47,7 @@ const NavBar = () => {
                 <Nav.Link href="/" className="link">
                   Home
                 </Nav.Link>
+
                 <Nav.Link href="/user/profile" className="link">
                   Profile
                 </Nav.Link>
@@ -67,23 +62,13 @@ const NavBar = () => {
                     Add a Pet
                   </NavDropdown.Item>
                 </NavDropdown>
+                <Nav.Link href="/adopt" className="link-adopt">
+                  ADOPT
+                </Nav.Link>
               </>
             )}
           </Nav>
-          <Form>
-            <InputGroup className="d-flex">
-              <Button variant="light" id="button-addon1">
-                <BiSearchAlt2 className="icon" />
-              </Button>
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-                aria-describedby="basic-addon1"
-              />
-            </InputGroup>
-          </Form>
+
           <div className="nav-bar-button">
             {!authenticated && (
               <>

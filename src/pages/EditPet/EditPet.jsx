@@ -61,13 +61,15 @@ const EditPet = () => {
       });
 
     setFlashMessage(data.message, msgType);
-    navigate('/pet/mypets')
+    navigate('/pet/mypets');
   }
 
   return (
     <div className="container-pets">
       <div className="title-pets">Edit Pet</div>
-      <div>Editing {pet.name}</div>
+      <div className="text-list">
+        Editing <span className="name-pet">{pet.name}</span>{' '}
+      </div>
       {pet.name && (
         <PetForm btnText="Edit Pet" petData={pet} handleSubmit={updatePet} />
       )}

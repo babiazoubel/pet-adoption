@@ -2,13 +2,14 @@
   display: flex;
   justify-content: space-between;
   height: 65px;  
-  margin: 25px 50px;
+  margin: 25px 25px;
   background: #9f7733;
   border-radius: 6px;
   color: #343a40;
   padding: 5px;
   font-family: 'Ubuntu', sans-serif;
   font-weight: 500;
+  align-items: center;
 }
 
 .links {
@@ -26,6 +27,10 @@
 }
 
 .link:hover {
+  color: #8ebfe0;
+}
+
+.link-adopt {
   color: #8ebfe0;
 }
 
@@ -58,10 +63,8 @@
   font-weight: 500;
 }
 
-.icon {
-  color: #d6a046;
-  width: 20px;
-  height: 20px;
-}
+
+
+
 
 

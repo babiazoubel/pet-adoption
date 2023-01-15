@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, InputGroup } from 'react-bootstrap';
+import { Form, InputGroup, Dropdown, DropdownButton } from 'react-bootstrap';
 import './PetForm.css';
 import Select from '../Select';
 
@@ -118,6 +118,7 @@ const PetForm = ({ petData, handleSubmit, btnText }) => {
             onChange={handleChange}
             value={pet.age || ''}
           />
+          <InputGroup.Text id="basic-addon1">month(s)</InputGroup.Text>
         </InputGroup>
         <InputGroup className="mb-3">
           <InputGroup.Text id="basic-addon1">Weight</InputGroup.Text>
@@ -130,6 +131,7 @@ const PetForm = ({ petData, handleSubmit, btnText }) => {
             onChange={handleChange}
             value={pet.weight || ''}
           />
+          <InputGroup.Text id="basic-addon1">kg</InputGroup.Text>
         </InputGroup>
         <InputGroup className="mb-3">
           <InputGroup.Text id="basic-addon1">Height</InputGroup.Text>
@@ -142,6 +144,7 @@ const PetForm = ({ petData, handleSubmit, btnText }) => {
             onChange={handleChange}
             value={pet.height || ''}
           />
+          <InputGroup.Text id="basic-addon1">cm</InputGroup.Text>
         </InputGroup>
         <InputGroup className="mb-3">
           <InputGroup.Text id="basic-addon1">Color</InputGroup.Text>
