@@ -10,32 +10,34 @@ import { InputGroup, Button, Form } from 'react-bootstrap';
 import { BiSearchAlt2 } from 'react-icons/bi';
 
 const Adopt = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedOptions, setSelectedOptions] = useState({
-    type: [],
-    weight: [],
-    height: [],
-    name: '',
-  });
+  const [searchTerm, setSearchTerm] = useState('');
+  const [handleCheck, setHandleCheck] = useState({});
   const [pets, setPets] = useState([]);
 
   useEffect(() => {
-    api.get('/pets').then((response) => {
-      setPets(response.data.pets);
-    });
+    api
+      .get(`/pets`)
+      .then((response) => {
+        setPets(response.data.pets);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
-  // function handleOnChangeSearch(e) {
-  //   setSearch({ [e.target.name]: e.target.value.toLowerCase() });
-  // }
-
-  const handleOnClickSearch = async () => {
-    const response = await api.get('/pets/search', {
-      params: { searchQuery, selectedOptions },
-    });
-    setPets(response.data.pets);
-    console.log(response.data.pets)
+  const handleOnChangeSearch = (e) => {
+    setSearchTerm(e.target.value);
   };
+
+  const handleChangeCheck = (e) => {
+    setHandleCheck({ ...handleCheck, [e.target.name]: e.target.value })
+  }
+
+  // const handleOnClickSearch = (e) => {
+  //   e.preventDefault();
+  //   api
+  //     .get('/pets', { params: { name: searchTerm } })
+  //     .then((res) => setPets(res.data))
+  //     .catch((err) => console.log(err));
+  // };
 
   return (
     <>
@@ -54,17 +56,18 @@ const Adopt = () => {
                 <Button
                   variant="light"
                   id="button-addon1"
-                  onClick={handleOnClickSearch}
+                  // onClick={handleOnClickSearch}
                 >
                   <BiSearchAlt2 className="icon" />
                 </Button>
                 <Form.Control
-                  type="search"
+                  type="text"
                   placeholder="Search"
                   className="me-2"
                   aria-label="Search"
                   aria-describedby="basic-addon1"
-                  onChange={(e) => setSearchQuery(e.target.value)}
+                  value={searchTerm}
+                  onChange={handleOnChangeSearch}
                 />
               </InputGroup>
             </Form>
@@ -77,6 +80,7 @@ const Adopt = () => {
               type="checkbox"
               id="inline-checkbox-1"
               value="adoption"
+              onChange={handleChangeCheck}
             />
             <Form.Check
               inline
@@ -85,9 +89,7 @@ const Adopt = () => {
               type="checkbox"
               id="inline-checkbox-1"
               value="type"
-              onChange={(selected) =>
-                setSelectedOptions({ ...selectedOptions, type: selected })
-              }
+              onChange={handleChangeCheck}
             />
             <Form.Check
               inline
@@ -96,9 +98,7 @@ const Adopt = () => {
               type="checkbox"
               id="inline-checkbox-1"
               value="height"
-              onChange={(selected) =>
-                setSelectedOptions({ ...selectedOptions, height: selected })
-              }
+              onChange={handleChangeCheck}
             />
             <Form.Check
               inline
@@ -107,9 +107,7 @@ const Adopt = () => {
               type="checkbox"
               id="inline-checkbox-1"
               value="weight"
-              onChange={(selected) =>
-                setSelectedOptions({ ...selectedOptions, weight: selected })
-              }
+              onChange={handleChangeCheck}
             />
             <Form.Check
               inline
@@ -118,9 +116,7 @@ const Adopt = () => {
               type="checkbox"
               id="inline-checkbox-1"
               value="name"
-              onChange={(selected) =>
-                setSelectedOptions({ ...selectedOptions, name: selected })
-              }
+              onChange={handleChangeCheck}
             />
           </div>
         </div>
@@ -128,36 +124,46 @@ const Adopt = () => {
       <div className="center-list">
         <div className="box-all-home">
           {pets.length > 0 &&
-            pets.map((pet) => (
-              <div key={pet._id} className="pet-box">
-                <img
-                  src={`http://localhost:5000/images/pets/${pet.images[0]}`}
-                  alt={pet.name}
-                  className="img-pet-home"
-                />
-                <div className="box-pets-home">
-                  <div className="title-list">
-                    <span className="text-list">{pet.name}</span> ({pet.type})
-                  </div>
-                  <div className="title-list">
-                    <span className="text-list">Breed:</span> {pet.breed}
-                  </div>
-                  <div className="title-list">
-                    <span className="text-list">Height:</span> {pet.height}cm
-                  </div>
-                  <div className="title-list">
-                    <span className="text-list">Weight:</span> {pet.weight}kg
-                  </div>
-                  <div>
-                    {pet.available ? (
-                      <Link to={`pet/${pet._id}`}>More details</Link>
-                    ) : (
-                      <p className="text-list-adopted">Adopted</p>
-                    )}
+            pets
+              .filter((val) => {
+                if (searchTerm === '') {
+                  return val;
+                } else if (
+                  val.name.toLowerCase().includes(searchTerm.toLowerCase())
+                ) {
+                  return val;
+                }
+              })
+              .map((pet) => (
+                <div key={pet._id} className="pet-box">
+                  <img
+                    src={`http://localhost:5000/images/pets/${pet.images[0]}`}
+                    alt={pet.name}
+                    className="img-pet-home"
+                  />
+                  <div className="box-pets-home">
+                    <div className="title-list">
+                      <span className="text-list">{pet.name}</span> ({pet.type})
+                    </div>
+                    <div className="title-list">
+                      <span className="text-list">Breed:</span> {pet.breed}
+                    </div>
+                    <div className="title-list">
+                      <span className="text-list">Height:</span> {pet.height}cm
+                    </div>
+                    <div className="title-list">
+                      <span className="text-list">Weight:</span> {pet.weight}kg
+                    </div>
+                    <div>
+                      {pet.available ? (
+                        <Link to={`pet/${pet._id}`}>More details</Link>
+                      ) : (
+                        <p className="text-list-adopted">Adopted</p>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
           {pets.length === 0 && (
             <span>
               Doesn't have any pet available to adopt right now. Please, come
