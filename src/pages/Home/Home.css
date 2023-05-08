@@ -4,7 +4,6 @@
   margin: 3vh 10vh;
   font-family: 'Ubuntu', sans-serif;
   align-items: center;
-  height: 100vh;
 }
 
 .title-box {
@@ -19,18 +18,17 @@
 .title {
   font-weight: 700;
   font-size: 45px;
-  letter-spacing: 1px;
   color: #25395c;
   line-height: 8vh;
+  letter-spacing: 0.5px;
   text-align: center;
-  text-shadow: #8ebfe0 1px 0 7px;
 }
 
 .sub-title {
   font-weight: 500;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   font-size: 20px;
-  color: #d9e2f1;
+  color: #767676;
   text-align: center;
   margin-top: 1vh;
 }

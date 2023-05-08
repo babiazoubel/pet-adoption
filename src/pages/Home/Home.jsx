@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import api from '../../utils/api';
 import { Link } from 'react-router-dom';
 import './Home.css';
+import Register from '../../modals/Register/Register';
 
 import { AuthContext } from '../../contexts/AuthContext';
 
@@ -35,7 +36,7 @@ const Home = () => {
           <div className="title-box">
             {authenticated && (
               <div className="text">
-                Hello,{' '}
+                Hello,
                 <span className="name-home">
                   {user.name} {user.lastName}
                 </span>
@@ -44,12 +45,27 @@ const Home = () => {
             )}
             <div className="title">Welcome to Mutt Lovers</div>
             <div className="sub-title">Adopt your next best friend</div>
+
             <div className="text">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Repudiandae, et voluptates consectetur quidem nihil pariatur harum
-              asperiores, quo, accusamus distinctio neque culpa! Quisquam magni
-              accusamus vitae illum, ullam corrupti repellat.
+              The ultimate online platform for all pet adoption enthusiasts! Our
+              website is dedicated to helping homeless animals find loving and
+              caring homes. We believe that every animal deserves a second
+              chance at happiness, and through our extensive network of
+              shelters, rescues, and foster homes, we strive to connect these
+              deserving pets with their perfect forever families. Whether you
+              are a first-time pet owner or a seasoned animal lover, Mutt Lovers
+              offers a user-friendly and comprehensive experience that is
+              designed to make the adoption process as easy and enjoyable as
+              possible.
             </div>
+            {!authenticated && (
+              <>
+                <div className="text">
+                  Join us today and find your new furry best friend!
+                </div>
+                <Register />
+              </>
+            )}
           </div>
         </div>
       </section>

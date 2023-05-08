@@ -3,9 +3,9 @@
   justify-content: space-between;
   height: 65px;  
   margin: 25px 25px;
-  background: #9f7733;
+  background: #343a40;
   border-radius: 6px;
-  color: #343a40;
+  color: #ffffff;
   padding: 5px;
   font-family: 'Ubuntu', sans-serif;
   font-weight: 500;
@@ -23,7 +23,7 @@
   font-family: 'Ubuntu', sans-serif;
   font-weight: 500;
   text-decoration: none;
-  color: #343a40;
+  color: #ffffff;
 }
 
 .link:hover {
