@@ -1,5 +1,5 @@
 # pet-adoption-fe
-A full-stack project that was built during ITC Full Stack Developer program. This is the front-end repo and is built using React and includes features such as user auth, search/filter pets, and the ability to submit an application for adoption. This project showcases my skills in full-stack web development.
+A full-stack project designed to facilitate the adoption of pets. This is the front-end repo and is built using React and includes features such as user auth, search/filter pets, and the ability to submit an application for adoption. This project showcases my skills in full-stack web development.
 
 
 ## Getting Started
